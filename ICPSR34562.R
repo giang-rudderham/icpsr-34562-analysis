@@ -161,40 +161,6 @@ ggplot(data = graph1_data, aes(x = sample_type, y = percent, fill = gender)) +
 dev.off()
 
 
-# Set my plotly credentials (to publish plotly plots)
-Sys.setenv("plotly_username"="gnrudderham")
-Sys.setenv("plotly_api_key"="udCkEqIZHLuoIRuN6CNL")
-
-# Create dataframe for plotting with plotly - graph 1
-percent <- c(prop.table(table(data$SEX)), prop.table(table(da34562.0001$SEX)))
-percent <- round(percent * 100, digits = 2)
-
-gender <- c("Male", "Female", "Male", "Female")
-
-sample_type <- c("Incarcerated At Least Once", "Full Sample")
-Male <- c(prop.table(table(data$SEX))[1], prop.table(table(da34562.0001$SEX))[1])
-Female <- c(prop.table(table(data$SEX))[2], prop.table(table(da34562.0001$SEX))[2])
-
-graph1_data <- data.frame(sample_type, gender, percent)
-graph1_data 
-
-# Graph 1: plotly
-p <- plot_ly(data, x = ~Animals, y = ~SF_Zoo, type = 'bar', name = 'SF Zoo') %>%
-  add_trace(y = ~LA_Zoo, name = 'LA Zoo') %>%
-  layout(yaxis = list(title = 'Count'), barmode = 'group')
-
-p <- plot_ly(data = graph1_data, x = ~sample_type, y = ~percent, fill = ~gender, type = "bar", name = "gender",
-             marker = list(color = ls("#3182bd", "#de2d26"))) %>%
-  layout(title = "Maternal Mortality Ratio Per 100,000 Live Births (2015)",
-         xaxis = list(title = "", showticklabels = F),
-         yaxis = list(title = ""),
-         bargap = 0)
-#yaxis = list(title = "Electrification Rate (%)"), 
-#barmode = "group")
-p
-
-
-
 
 # Graph 2: for race/ethnicity
 # Count of 4 race groups, R incarcerated at least 1 month
